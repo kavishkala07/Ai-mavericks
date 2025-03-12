@@ -1,0 +1,12 @@
+class Problem(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    test_cases = models.JSONField()  # Store input-output test cases as JSON
+
+class Submission(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    problem = models.ForeignKey(Problem, on_delete=models.CASCADE)
+    code = models.TextField()
+    language = models.CharField(max_length=50)
+    status = models.CharField(max_length=20, default="Pending")
+    score = models.IntegerField(default=0)
