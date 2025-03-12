@@ -1,0 +1,6 @@
+import time
+
+def contest_timer(duration):
+    start_time = time.time()
+    while time.time() - start_time < duration:
+        time.sleep(1)
