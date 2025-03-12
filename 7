@@ -1,0 +1,6 @@
+def update_ratings(winner, loser):
+    k_factor = 32
+    winner.rating += k_factor * (1 - (1 / (1 + 10 ** ((loser.rating - winner.rating) / 400))))
+    loser.rating -= k_factor * (1 - (1 / (1 + 10 ** ((winner.rating - loser.rating) / 400))))
+    winner.save()
+    loser.save()
