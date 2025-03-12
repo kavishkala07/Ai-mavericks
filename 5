@@ -1,0 +1,6 @@
+import moss
+
+def check_plagiarism(submission_code):
+    moss_client = moss.Moss('YOUR_MOSS_ID', 'python')
+    moss_client.addFile('submission.py', submission_code)
+    return moss_client.send()
