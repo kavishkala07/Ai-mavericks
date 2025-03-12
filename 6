@@ -1,0 +1,7 @@
+from celery import shared_task
+
+@shared_task
+def start_contest(contest_id):
+    contest = Contest.objects.get(id=contest_id)
+    contest.status = "Running"
+    contest.save()
