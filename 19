@@ -1,0 +1,4 @@
+import shutil
+
+def backup_data():
+    shutil.copy("db.sqlite3", "backup.sqlite3")
