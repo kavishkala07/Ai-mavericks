@@ -1,0 +1,8 @@
+LANGUAGE_EXECUTORS = {
+    "python": "python:latest",
+    "c++": "gcc:latest",
+}
+
+def execute_code(code, language):
+    container = docker.run(LANGUAGE_EXECUTORS[language], command=code)
+    return container.logs()
