@@ -1,0 +1,6 @@
+import docker
+
+def run_code_sandbox(code, language):
+    client = docker.from_env()
+    container = client.containers.run(f"{language}-executor", command=code, detach=True)
+    return container.logs()
