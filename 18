@@ -1,0 +1,4 @@
+class ProblemRating(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    problem = models.ForeignKey(Problem, on_delete=models.CASCADE)
+    rating = models.IntegerField(default=0)
